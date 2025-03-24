@@ -22,12 +22,14 @@
       integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %} 
     
     {% block extra_css %} 
     {% endblock %} 
     
     {% block corejs %}
+    <script src="https://kit.fontawesome.com/c335f354bd.js" crossorigin="anonymous"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -43,17 +45,17 @@
     {% block extra_js %} 
     {% endblock %}
 
-    <title>Boutique Ado {% block extra_title %}{% endblock %}</title>
+    <title>EERISED Candles {% block extra_title %}{% endblock %}</title>
   </head>
   <body>
     <header class="container-fluid fixed-top">
-      <div class="row">
+      <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
         <div
           class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-centre text-lg-left"
         >
           <a href="{% url 'home' %}" class="nav-ink main-logo-link">
             <h2 class="logo-font text-black my-0">
-              <strong>EERISED</strong> Candles
+              <strong>EERISED</strong>Candles
             </h2>
           </a>
         </div>
@@ -91,14 +93,14 @@
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="user-options">
               {% if request.user.is_authenticated %}
-                {% if request.user.is_superuser %}
-                  <a href="" class="dropdown-item">Product Management</a>
-                {% endif %}
-                <a href="" class="dropdown-item">My Profile</a>
-                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+              {% if request.user.is_superuser %}
+              <a href="" class="dropdown-item">Product Management</a>
+              {% endif %}
+              <a href="" class="dropdown-item">My Profile</a>
+              <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
               {% else %}
-                <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+              <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+              <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
               {% endif %}
             </div>
             </li>
@@ -135,5 +137,5 @@
     {% endblock %}
 
   </body>
-  
+
 </html>
