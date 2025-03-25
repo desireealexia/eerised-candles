@@ -1,0 +1,128 @@
+[
+    {
+        "pk": 1,
+        "model": "products.product",
+        "fields": {
+            "sku": "eeri001",
+            "name": "Tea Light Candle - Lavender",
+            "description": "A soothing lavender-scented tea light candle perfect for creating a calming atmosphere.",
+            "price": 5.99,
+            "category": 2,
+            "rating": 4.8,
+            "stock": 100,
+            "image_url": "http://your-image-url.com/tealight-lavender.jpg",
+            "image": "tealight-lavender.jpg",
+            "created_at": "2025-03-25T00:00:00Z",
+            "updated_at": "2025-03-25T00:00:00Z",
+            "personalisation_details": null
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.product",
+        "fields": {
+            "sku": "eeri002",
+            "name": "Small Jar Candle - Vanilla Bean",
+            "description": "A warm vanilla bean-scented small jar candle to add a cozy touch to any room.",
+            "price": 12.99,
+            "category": 3,
+            "rating": 4.7,
+            "stock": 150,
+            "image_url": "http://your-image-url.com/small-jar-vanilla.jpg",
+            "image": "small-jar-vanilla.jpg",
+            "created_at": "2025-03-25T00:00:00Z",
+            "updated_at": "2025-03-25T00:00:00Z",
+            "personalisation_details": null
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.product",
+        "fields": {
+            "sku": "eeri003",
+            "name": "Large Jar Candle - Jasmine Blossom",
+            "description": "A floral jasmine blossom-scented large jar candle that brings freshness to your home.",
+            "price": 24.99,
+            "category": 4,
+            "rating": 5.0,
+            "stock": 50,
+            "image_url": "http://your-image-url.com/large-jar-jasmine.jpg",
+            "image": "large-jar-jasmine.jpg",
+            "created_at": "2025-03-25T00:00:00Z",
+            "updated_at": "2025-03-25T00:00:00Z",
+            "personalisation_details": null
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.product",
+        "fields": {
+            "sku": "eeri004",
+            "name": "Personalised Candle - Custom Scent",
+            "description": "Create your own custom-scented candle with a personalized label. Perfect for gifts.",
+            "price": 19.99,
+            "category": 5,
+            "rating": 4.9,
+            "stock": 75,
+            "image_url": "http://your-image-url.com/personalised-candle.jpg",
+            "image": "personalised-candle.jpg",
+            "created_at": "2025-03-25T00:00:00Z",
+            "updated_at": "2025-03-25T00:00:00Z",
+            "personalisation_details": "Custom scent choices and personalized label text."
+        }
+    },
+    {
+        "pk": 5,
+        "model": "products.product",
+        "fields": {
+            "sku": "eeri005",
+            "name": "Reed Diffuser - Ocean Breeze",
+            "description": "A refreshing ocean breeze-scented reed diffuser that fills your space with a clean, crisp fragrance.",
+            "price": 15.99,
+            "category": 6,
+            "rating": 4.5,
+            "stock": 60,
+            "image_url": "http://your-image-url.com/reed-diffuser-ocean.jpg",
+            "image": "reed-diffuser-ocean.jpg",
+            "created_at": "2025-03-25T00:00:00Z",
+            "updated_at": "2025-03-25T00:00:00Z",
+            "personalisation_details": null
+        }
+    },
+    {
+        "pk": 6,
+        "model": "products.product",
+        "fields": {
+            "sku": "eeri006",
+            "name": "Room Spray - Fresh Linen",
+            "description": "A light and airy fresh linen-scented room spray to instantly refresh your space.",
+            "price": 9.99,
+            "category": 7,
+            "rating": 4.4,
+            "stock": 120,
+            "image_url": "http://your-image-url.com/room-spray-linen.jpg",
+            "image": "room-spray-linen.jpg",
+            "created_at": "2025-03-25T00:00:00Z",
+            "updated_at": "2025-03-25T00:00:00Z",
+            "personalisation_details": null
+        }
+    },
+    {
+        "pk": 7,
+        "model": "products.product",
+        "fields": {
+            "sku": "eeri007",
+            "name": "Wax Melt - Sweet Vanilla",
+            "description": "Delight in the rich scent of sweet vanilla with these wax melts for your warmer.",
+            "price": 6.49,
+            "category": 8,
+            "rating": 4.6,
+            "stock": 200,
+            "image_url": "http://your-image-url.com/wax-melt-vanilla.jpg",
+            "image": "wax-melt-vanilla.jpg",
+            "created_at": "2025-03-25T00:00:00Z",
+            "updated_at": "2025-03-25T00:00:00Z",
+            "personalisation_details": null
+        }
+    }
+]

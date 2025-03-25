@@ -1,0 +1,70 @@
+[
+  {
+    "pk": 1,
+    "model": "products.category",
+    "fields": {
+      "name": "candles",
+      "friendly_name": "Candles"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "products.category",
+    "fields": {
+      "name": "tea_light_candles",
+      "friendly_name": "Tea Light Candles",
+      "parent_category": 1
+    }
+  },
+  {
+    "pk": 3,
+    "model": "products.category",
+    "fields": {
+      "name": "small_jar_candles",
+      "friendly_name": "Small Jar Candles",
+      "parent_category": 1
+    }
+  },
+  {
+    "pk": 4,
+    "model": "products.category",
+    "fields": {
+      "name": "large_jar_candles",
+      "friendly_name": "Large Jar Candles",
+      "parent_category": 1
+    }
+  },
+  {
+    "pk": 5,
+    "model": "products.category",
+    "fields": {
+      "name": "personalised_candles",
+      "friendly_name": "Personalised Candles",
+      "parent_category": 1
+    }
+  },
+  {
+    "pk": 6,
+    "model": "products.category",
+    "fields": {
+      "name": "reed_diffusers",
+      "friendly_name": "Reed Diffusers"
+    }
+  },
+  {
+    "pk": 7,
+    "model": "products.category",
+    "fields": {
+      "name": "room_sprays",
+      "friendly_name": "Room Sprays"
+    }
+  },
+  {
+    "pk": 8,
+    "model": "products.category",
+    "fields": {
+      "name": "wax_melts",
+      "friendly_name": "Wax Melts"
+    }
+  }
+]
