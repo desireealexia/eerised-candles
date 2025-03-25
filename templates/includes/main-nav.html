@@ -8,7 +8,7 @@
                 <a href="" class="dropdown-item">By Price</a>
                 <a href="" class="dropdown-item ">By Rating</a>
                 <a href="" class="dropdown-item ">By Category</a>
-                <a href="{ url 'products' %}" class="dropdown-item">All Products</a>
+                <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
             </div>
         </li>
 
@@ -17,23 +17,24 @@
                 Candles
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                <a href="" class="dropdown-item">Tea Light Candles</a>
-                <a href="" class="dropdown-item">Small Jar Candles</a>
-                <a href="" class="dropdown-item">Large Jar Candles</a>
-                <a href="" class="dropdown-item">Personalised Candles<a>
+                <a href="{% url 'products'  %}?category=tea_light_candles,small_jar_candles,large_jar_candles,personalised_candles" class="dropdown-item">All Candles</a>
+                <a href="{% url 'products'  %}?category=tea_light_candles" class="dropdown-item">Tea Light Candles</a>
+                <a href="{% url 'products'  %}?category=small_jar_candles" class="dropdown-item">Small Jar Candles</a>
+                <a href="{% url 'products'  %}?category=large_jar_candles" class="dropdown-item">Large Jar Candles</a>
+                <a href="{% url 'products'  %}?category=personalised_candles" class="dropdown-item">Personalised Candles<a>
             </div>
         </li>
 
         <li class="nav-item">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#">Reed Diffusers</a>
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'products'  %}?category=reed_diffusers">Reed Diffusers</a>
         </li>
 
         <li class="nav-item">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#">Room Sprays</a>
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'products'  %}?category=room_sprays">Room Sprays</a>
         </li>
 
         <li class="nav-item">
-            <a class="logo-font font-weight-bold nav-link text-black" href="#">Wax Melts</a>
+            <a class="logo-font font-weight-bold nav-link text-black" href="{% url 'products'  %}?category=wax_melts">Wax Melts</a>
         </li>
     </ul>
 </div>
