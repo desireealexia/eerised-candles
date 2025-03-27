@@ -33,8 +33,15 @@
             <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'products'  %}?category=room_sprays">Room Sprays</a>
         </li>
 
-        <li class="nav-item">
-            <a class="logo-font font-weight-bold nav-link text-black" href="{% url 'products'  %}?category=wax_melts">Wax Melts</a>
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Wax Melts
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
+                <a href="{% url 'products'  %}?category=wax_melts,shot_pots,snap_bars" class="dropdown-item">All Wax Melts</a>
+                <a href="{% url 'products'  %}?category=shot_pots" class="dropdown-item">Shot Pots</a>
+                <a href="{% url 'products'  %}?category=snap_bars" class="dropdown-item">Snap Bars</a>
+            </div>
         </li>
     </ul>
 </div>

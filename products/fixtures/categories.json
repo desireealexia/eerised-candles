@@ -66,5 +66,23 @@
       "name": "wax_melts",
       "friendly_name": "Wax Melts"
     }
+  },
+  {
+    "pk": 9,
+    "model": "products.category",
+    "fields": {
+      "name": "shot_pots",
+      "friendly_name": "Shot Pots",
+      "parent_category": 8
+    }
+  },
+  {
+    "pk": 5,
+    "model": "products.category",
+    "fields": {
+      "name": "snap_bars",
+      "friendly_name": "Snap Bars",
+      "parent_category": 8
+    }
   }
 ]
