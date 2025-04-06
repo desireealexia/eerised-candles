@@ -30,9 +30,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = [
-    '127.0.0.1', # vs code preview
-    'localhost', # listen for stripe webhooks
-    'eerised-candles-d14b8af9df5f.herokuapp.com', # heroku application
+    '127.0.0.1',  # vs code preview
+    'localhost',  # listen for stripe webhooks
+    'eerised-candles-d14b8af9df5f.herokuapp.com',  # heroku application
 ]
 
 
@@ -54,7 +54,7 @@ INSTALLED_APPS = [
     'bag',
     'checkout',
     'profiles',
-    
+
     # Other
     'crispy_forms',
     'storages',
@@ -79,13 +79,15 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'templates'),
-            os.path.join(BASE_DIR, 'templates', 'allauth')    
+            os.path.join(BASE_DIR, 'templates', 'allauth')
         ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request', # required by allauth
+
+                # required by allauth
+                'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
@@ -141,16 +143,20 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME':
+            'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME':
+            'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME':
+            'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME':
+            'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
 
@@ -182,7 +188,7 @@ if 'USE_AWS' in os.environ:
         'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
         'CacheControl': 'max-age=94608000',
     }
-    
+
     # Bucket Config
     AWS_STORAGE_BUCKET_NAME = 'eerised-candles'
     AWS_S3_REGION_NAME = 'eu-west-2'
