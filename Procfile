@@ -1,0 +1,1 @@
+web: gunicorn eerised_candles.wsgi:application

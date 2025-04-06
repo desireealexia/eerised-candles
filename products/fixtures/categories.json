@@ -77,7 +77,7 @@
     }
   },
   {
-    "pk": 5,
+    "pk": 10,
     "model": "products.category",
     "fields": {
       "name": "snap_bars",
