@@ -33,7 +33,6 @@ class Product(models.Model):
     image = models.ImageField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    personalisation_details = models.TextField(null=True, blank=True)
 
     def __str__(self):
         return self.name
