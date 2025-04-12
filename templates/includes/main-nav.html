@@ -17,17 +17,8 @@
             </div>
         </li>
 
-        <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Candles
-            </a>
-            <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                <a href="{% url 'products'  %}?category=tea_light_candles,small_jar_candles,large_jar_candles,personalised_candles" class="dropdown-item">All Candles</a>
-                <a href="{% url 'products'  %}?category=tea_light_candles" class="dropdown-item">Tea Light Candles</a>
-                <a href="{% url 'products'  %}?category=small_jar_candles" class="dropdown-item">Small Jar Candles</a>
-                <a href="{% url 'products'  %}?category=large_jar_candles" class="dropdown-item">Large Jar Candles</a>
-                <a href="{% url 'products'  %}?category=personalised_candles" class="dropdown-item">Personalised Candles<a>
-            </div>
+        <li class="nav-item">
+            <a href="{% url 'products'  %}?category=candles" class="logo-font font-weight-bold nav-link text-black mr-5">Candles</a>
         </li>
 
         <li class="nav-item">
@@ -36,17 +27,6 @@
 
         <li class="nav-item">
             <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'products'  %}?category=room_sprays">Room Sprays</a>
-        </li>
-
-        <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Wax Melts
-            </a>
-            <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                <a href="{% url 'products'  %}?category=wax_melts,shot_pots,snap_bars" class="dropdown-item">All Wax Melts</a>
-                <a href="{% url 'products'  %}?category=shot_pots" class="dropdown-item">Shot Pots</a>
-                <a href="{% url 'products'  %}?category=snap_bars" class="dropdown-item">Snap Bars</a>
-            </div>
         </li>
     </ul>
 </div>

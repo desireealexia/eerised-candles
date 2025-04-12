@@ -5,7 +5,7 @@ from django.db.models import Q
 from django.db.models.functions import Lower
 
 from .models import Product, Category
-from .forms import ProductForm
+from .forms import ProductForm, ReviewForm
 
 
 # Create your views here.
@@ -71,9 +71,23 @@ def product_detail(request, product_id):
     A view to show individual product details
     """
     product = get_object_or_404(Product, pk=product_id)
+    reviews = product.reviews.all().order_by('-created_at')
+
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.product = product
+            review.user = request.user
+            review.save()
+            return redirect('product_detail', product_id=product.id)
+    else:
+        form = ReviewForm()
 
     context = {
         'product': product,
+        'reviews': reviews,
+        'form': form,
     }
 
     return render(request, 'products/product_detail.html', context)

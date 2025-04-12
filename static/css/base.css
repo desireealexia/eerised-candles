@@ -259,6 +259,21 @@ input[name='q']::placeholder {
     border-radius: 0;
 }
 
+.thumbnail {
+    height: 300px;
+    object-fit: cover;
+}
+
+.product-img {
+    height: 600px;
+    object-fit: cover;
+}
+
+#logo {
+    height: 50px;
+    width: 50px;
+}
+
 /* -------------------------------- Media Queries */
 
 @media (min-width: 1200px) {
