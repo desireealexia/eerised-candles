@@ -95,6 +95,9 @@ def product_detail(request, product_id):
         form = ReviewForm()
         
     average_rating = round(reviews.aggregate(Avg('rating'))['rating__avg'] or 0, 1)
+    
+    if user_review:
+        reviews = [user_review] + [review for review in reviews if review != user_review]
 
     context = {
         'product': product,

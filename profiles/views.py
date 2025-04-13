@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 
+from products.models import Review 
 from .models import UserProfile
 from .forms import UserProfileForm
 
@@ -14,6 +16,12 @@ def profile(request):
     Display the user's profile.
     """
     profile = get_object_or_404(UserProfile, user=request.user)
+    reviews = Review.objects.filter(user=request.user).order_by('-created_at')
+    
+    # Pagination for reviews
+    paginator = Paginator(reviews, 3)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
 
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=profile)
@@ -31,7 +39,8 @@ def profile(request):
     context = {
         'form': form,
         'orders': orders,
-        'on_profile_page': True
+        'on_profile_page': True,
+        'reviews': page_obj,
     }
 
     return render(request, template, context)
