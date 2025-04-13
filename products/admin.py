@@ -9,7 +9,6 @@ class ProductAdmin(admin.ModelAdmin):
         'name',
         'category',
         'price',
-        'rating',
         'stock',
         'image',
         'created_at',
@@ -23,10 +22,23 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = (
         'friendly_name',
         'name',
-        'parent_category'
+        'product_count',
+    )
+
+    def product_count(self, obj):
+        return obj.product_set.count()
+    product_count.short_description = 'Number of Products'
+
+
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = (
+        'user',
+        'product',
+        'rating',
+        'created_at',
     )
 
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
-admin.site.register(Review)
+admin.site.register(Review, ReviewAdmin)

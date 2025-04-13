@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
+from django.db.models import Avg 
 
 from .models import Product, Category, Review
 from .forms import ProductForm, ReviewForm
@@ -92,12 +93,15 @@ def product_detail(request, product_id):
             return redirect('product_detail', product_id=product.id)
     else:
         form = ReviewForm()
+        
+    average_rating = round(reviews.aggregate(Avg('rating'))['rating__avg'] or 0, 1)
 
     context = {
         'product': product,
         'reviews': reviews,
         'form': form,
         'user_review': user_review,
+        'average_rating': average_rating,
     }
 
     return render(request, 'products/product_detail.html', context)
