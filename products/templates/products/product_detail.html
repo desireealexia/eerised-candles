@@ -3,7 +3,19 @@
 
 {% block page_header %}
     <div class="container header-container">
-        <!-- Header could contain a product title or breadcrumb in future -->
+        <nav aria-label="breadcrumb" class="mt-3 ms-3">
+            <ol class="breadcrumb bg-white px-0">
+                <li class="breadcrumb-item">
+                    <a href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="{% url 'products' %}">Products</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                    {{ product.name }}
+                </li>
+            </ol>
+        </nav>
     </div>
 {% endblock %}
 
@@ -109,35 +121,49 @@
         </div>
 
             <!-- Reviews Section -->
-            <div class="row mt-5">
-                <div class="col-12">
-                    <section class="review-section mt-5">
-                        <h3>Leave a Review</h3>
-                        {% if user.is_authenticated %}
-                            <form method="POST" class="mb-4">
-                                {% csrf_token %}
-                                {{ form.as_p }}
-                                <button type="submit" class="btn btn-primary">Submit Review</button>
-                            </form>
-                        {% else %}
-                            <p><a href="{% url 'account_login' %}">Login</a> to leave a review.</p>
-                        {% endif %}
-                    
-                        <h4>Reviews:</h4>
-                        {% for review in reviews %}
-                            <article class="review mb-3 border-bottom pb-3">
-                                <header>
-                                    <strong>{{ review.user.username }}</strong> - {{ review.rating }}★
-                                </header>
-                                <p>{{ review.comment }}</p>
-                                <p><small>{{ review.created_at|date:"F j, Y" }}</small></p>
-                            </article>
-                        {% empty %}
-                            <p>No reviews yet.</p>
-                        {% endfor %}
-                    </section>                    
-                </div>
-            </div>
+<div class="row">
+    <div class="col-12 col-md-10 col-lg-8 offset-md-1 offset-lg-2 mt-5">
+        <h4 class="mb-3">Customer Reviews</h4>
+
+        {% if user.is_authenticated %}
+    {% if user_review %}
+        <p class="text-muted mt-4">You already submitted a review for this product.</p>
+    {% else %}
+        <form method="POST" class="mt-4">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-black rounded-0">Submit Review</button>
+        </form>
+    {% endif %}
+{% else %}
+    <p class="text-muted mt-4">You must be <a href="{% url 'account_login' %}">logged in</a> to leave a review.</p>
+{% endif %}
+    <br>
+        {% if reviews %}
+            <ul class="list-unstyled">
+                {% for review in reviews %}
+                    <li class="mb-3 border-bottom pb-2">
+                        <p class="mb-1"><strong>{{ review.user }}</strong> 
+                            <span class="text-muted"> - {{ review.created_on|date:"M d, Y" }}</span>
+                        </p>
+                        <p class="mb-1">{{ review.comment }}</p>
+                        <p class="small text-muted">Rating: {{ review.rating }}/5</p>
+
+                        {% if review.user == user %}
+                        <p class="small mt-1">
+                            <a href="{% url 'edit_review' product.id review.id %}">Edit</a> | 
+                            <a class="text-danger" href="{% url 'delete_review' product.id review.id %}">Delete</a>
+                        </p>
+                    {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="text-muted">No reviews yet.</p>
+        {% endif %}
+    </div>
+</div>
+
 {% endblock %}
 
 {% block postloadjs %}

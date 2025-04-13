@@ -1,4 +1,23 @@
+/* ============================= */
+/*         IMPORT FONTS          */
+/* ============================= */
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+/* ============================= */
+/*          ROOT VARIABLES       */
+/* ============================= */
+:root {
+    --mustard: #F7CF48;
+}
+
+/* ============================= */
+/*         GLOBAL STYLES         */
+/* ============================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 html {
     height: 100%;
@@ -11,6 +30,10 @@ body {
     color: #555;
     font-family: 'Lato';
 }
+
+/* ============================= */
+/*        NAVIGATION BAR         */
+/* ============================= */
 
 /* from Bulma */
 .icon {
@@ -25,9 +48,26 @@ body {
     text-transform: uppercase;
 }
 
+
+.main-logo-link:hover .eerised-title {
+    color: var(--mustard);
+}
+
 .main-logo-link {
     width: fit-content;
 }
+
+.main-logo-link:hover {
+    text-decoration: none;
+}
+
+.nav-link:hover .fas {
+    color: var(--mustard);
+}
+
+/* ============================= */
+/*            BUTTONS            */
+/* ============================= */
 
 .shop-now-button {
     background: black;
@@ -59,8 +99,8 @@ body {
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
-    background: #222;
-    color: white;
+    background: var(--mustard);
+    color: black;
 }
 
 .text-black {
@@ -83,11 +123,6 @@ body {
     position: fixed;
     background: white;
     z-index: -1;
-}
-
-a.category-badge > span.badge:hover {
-    background: #212529 !important;
-    color: #fff !important;
 }
 
 .btt-button {
