@@ -74,6 +74,9 @@ def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     reviews = product.reviews.all().order_by('-created_at')
     
+    for review in reviews:
+        review.is_updated = review.created_at.date() != review.updated_at.date()
+    
     user_review = None
     if request.user.is_authenticated:
         user_review = product.reviews.filter(user=request.user).first()

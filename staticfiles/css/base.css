@@ -1,7 +1,27 @@
+/* ============================= */
+/*         IMPORT FONTS          */
+/* ============================= */
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+/* ============================= */
+/*          ROOT VARIABLES       */
+/* ============================= */
+:root {
+    --mustard: #F7CF48;
+}
+
+/* ============================= */
+/*         GLOBAL STYLES         */
+/* ============================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 html {
     height: 100%;
+    font-family: 'Lato';
 }
 
 body {
@@ -9,8 +29,50 @@ body {
     background-size: cover;
     height: calc(100vh - 164px);
     color: #555;
-    font-family: 'Lato';
 }
+
+a {
+    color: #000;
+}
+
+a:hover {
+    color: var(--mustard);
+    text-decoration: none;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+/* ============================= */
+/*         BACKGROUNDS           */
+/* ============================= */
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: white;
+    z-index: -1;
+}
+
+.bg-black {
+    background: #000 !important;
+}
+
+/* ============================= */
+/*          HOME PAGE            */
+/* ============================= */
+
+.homepage-text {
+    color: #000;
+}
+
+/* ============================= */
+/*           HEADER              */
+/* ============================= */
 
 /* from Bulma */
 .icon {
@@ -21,13 +83,41 @@ body {
     width: 1.5rem;
 }
 
-.logo-font {
-    text-transform: uppercase;
+#logo {
+    height: 50px;
+    width: 50px;
+}
+
+.main-logo-link:hover .eerised-title {
+    color: var(--mustard) !important;
 }
 
 .main-logo-link {
     width: fit-content;
 }
+
+.main-logo-link:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+/* Search */
+input[name='q']::placeholder {
+    color: #aab7c4;
+}
+
+/* Icons */
+.nav-link:hover .fas {
+    color: var(--mustard);
+}
+
+.dropdown-item:hover {
+    background: var(--mustard);
+}
+
+/* ============================= */
+/*            BUTTONS            */
+/* ============================= */
 
 .shop-now-button {
     background: black;
@@ -40,8 +130,9 @@ body {
     color: white;
 }
 
+.checkout-button:hover,
 .btn-outline-black {
-    background: white;
+    background: white !important;
     color: black !important;
     border: 1px solid black;
 }
@@ -49,7 +140,7 @@ body {
 .btn-outline-black:hover,
 .btn-outline-black:active,
 .btn-outline-black:focus {
-    background: black;
+    background: black !important;
     color: white !important;
 }
 
@@ -59,35 +150,13 @@ body {
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
-    background: #222;
-    color: white;
+    background: var(--mustard);
+    color: black;
 }
 
-.text-black {
-    color: #000 !important;
-}
-
+/* black border on btn-outline */
 .border-black {
     border: 1px solid black !important;
-}
-
-.bg-black {
-    background: #000 !important;
-}
-
-.overlay {
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    position: fixed;
-    background: white;
-    z-index: -1;
-}
-
-a.category-badge > span.badge:hover {
-    background: #212529 !important;
-    color: #fff !important;
 }
 
 .btt-button {
@@ -104,11 +173,29 @@ a.category-badge > span.badge:hover {
     cursor: pointer;
 }
 
-input[name='q']::placeholder {
-    color: #aab7c4;
+/* ============================= */
+/*            IMAGES             */
+/* ============================= */
+
+.thumbnail {
+    height: 300px;
+    object-fit: cover;
 }
 
-/* ------------------------------- bootstrap toasts */
+.product-img {
+    height: 600px;
+    object-fit: cover;
+}
+
+.bag-img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* ============================= */
+/*        BOOTSTRAP TOASTS       */
+/* ============================= */
 
 .message-container {
     position: fixed;
@@ -177,11 +264,15 @@ input[name='q']::placeholder {
     overflow-y: auto;
 }
 
-/* Allauth form formatting */
+
+/* ============================= */
+/*      ALLAUTH FORMS            */
+/* ============================= */
+
 
 .allauth-form-inner-content p {
-    margin-top: 1.5rem; /* mt-4 */
-    color: #6c757d; /* text-secondary */
+    margin-top: 1.5rem;
+    color: #6c757d;
 }
 
 .allauth-form-inner-content input {
@@ -216,7 +307,6 @@ input[name='q']::placeholder {
     line-height: 1.5;
     border-radius: 0;
 
-    /* standard bootstrap btn transitions */
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
@@ -227,11 +317,9 @@ input[name='q']::placeholder {
     border-color: #222;
 }
 
-.allauth-form-inner-content a {
-	color: #17a2b8; /* text-info */
-}
-
-/* -------------------------------- Product Form */
+/* ============================= */
+/*         PRODUCT FORM          */
+/* ============================= */
 
 .btn-file {
     position: relative;
@@ -259,22 +347,22 @@ input[name='q']::placeholder {
     border-radius: 0;
 }
 
-.thumbnail {
-    height: 300px;
-    object-fit: cover;
+/* ============================= */
+/*         REVIEW LINKS          */
+/* ============================= */
+
+.review-link {
+    color: #000;
 }
 
-.product-img {
-    height: 600px;
-    object-fit: cover;
+.review-link:hover {
+    color: var(--mustard);
+    text-decoration: none;
 }
 
-#logo {
-    height: 50px;
-    width: 50px;
-}
-
-/* -------------------------------- Media Queries */
+/* ============================= */
+/*         MEDIA QUERIES         */
+/* ============================= */
 
 @media (min-width: 1200px) {
   .container {
