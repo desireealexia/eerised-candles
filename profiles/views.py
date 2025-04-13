@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 
-from products.models import Review 
+from products.models import Review, Wishlist
 from .models import UserProfile
 from .forms import UserProfileForm
 
@@ -17,6 +17,9 @@ def profile(request):
     """
     profile = get_object_or_404(UserProfile, user=request.user)
     reviews = Review.objects.filter(user=request.user).order_by('-created_at')
+    wishlist_products = []
+    if hasattr(request.user, 'wishlist'):
+        wishlist_products = request.user.wishlist.products.all()
     
     # Pagination for reviews
     paginator = Paginator(reviews, 3)
@@ -41,6 +44,7 @@ def profile(request):
         'orders': orders,
         'on_profile_page': True,
         'reviews': page_obj,
+        'wishlist': wishlist_products,
     }
 
     return render(request, template, context)

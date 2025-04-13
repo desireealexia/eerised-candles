@@ -361,6 +361,37 @@ input[name='q']::placeholder {
 }
 
 /* ============================= */
+/*        WISHLIST BUTTONS       */
+/* ============================= */
+
+.wishlist-button {
+    margin: 10px;
+}
+
+.position-relative > form {
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+}
+.wishlist-toggle-form button {
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border: none;
+  }
+
+  .wishlist-toggle-form button,
+  .wishlist-button {
+    transition: transform 0.2s;
+
+  }
+  
+  .wishlist-toggle-form button:hover,
+  .wishlist-button:hover {
+    transform: scale(1.1);
+  }
+  
+/* ============================= */
 /*         MEDIA QUERIES         */
 /* ============================= */
 

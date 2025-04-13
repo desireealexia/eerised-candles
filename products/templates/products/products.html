@@ -47,23 +47,41 @@
         {% for product in products %}
         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
           <div class="card h-100 border-0">
-            {% if product.image %}
-            <a href="{% url 'product_detail' product.id %}">
-              <img
-                class="card-img-top img-fluid thumbnail"
-                src="{{ product.image.url }}"
-                alt="{{ product.name }}"
-              />
-            </a>
-            {% else %}
-            <a href="{% url 'product_detail' product.id %}">
-              <img
-                class="card-img-top img-fluid thumbnail"
-                src="{{ MEDIA_URL }}noimage.png"
-                alt="{{ product.name }}"
-              />
-            </a>
-            {% endif %}
+            <div class="position-relative">
+              {% if product.image %}
+                <a href="{% url 'product_detail' product.id %}">
+                  <img
+                    class="card-img-top img-fluid thumbnail"
+                    src="{{ product.image.url }}"
+                    alt="{{ product.name }}"
+                  />
+                </a>
+              {% else %}
+                <a href="{% url 'product_detail' product.id %}">
+                  <img
+                    class="card-img-top img-fluid thumbnail"
+                    src="{{ MEDIA_URL }}noimage.png"
+                    alt="{{ product.name }}"
+                  />
+                </a>
+              {% endif %}
+            <!-- Wishlist toggle button -->
+              {% if user.is_authenticated %}
+                <form method="post" action="{% url 'toggle_wishlist' product.id %}" class="wishlist-toggle-form position-absolute">
+                  {% csrf_token %}
+                  <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                  {% if product in user.wishlist.products.all %}
+                    <button type="submit" class="btn btn-light p-1 rounded-circle shadow-sm">
+                      <i class="fas fa-heart text-danger"></i>
+                    </button>
+                  {% else %}
+                    <button type="submit" class="btn btn-light p-1 rounded-circle shadow-sm">
+                      <i class="far fa-heart text-dark"></i>
+                    </button>
+                  {% endif %}
+                </form>
+              {% endif %}
+            </div>            
             <div class="card-body pb-0">
               <p class="mb-0">{{ product.name }}</p>
             </div>

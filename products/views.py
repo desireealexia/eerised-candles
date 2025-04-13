@@ -4,8 +4,9 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 from django.db.models import Avg 
+from django.http import HttpResponseRedirect
 
-from .models import Product, Category, Review
+from .models import Product, Category, Review, Wishlist
 from .forms import ProductForm, ReviewForm
 
 
@@ -239,5 +240,25 @@ def delete_review(request, product_id, review_id):
     review.delete()
     messages.success(request,
                      "Your review has been deleted.")
+
     return redirect('product_detail',
                     product_id=product.id)
+
+
+@login_required
+def toggle_wishlist(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    wishlist, created = Wishlist.objects.get_or_create(user=request.user)
+
+    if product in wishlist.products.all():
+        wishlist.products.remove(product)
+        messages.warning(request,
+                         f"Removed {product.name} from your wishlist.")
+    else:
+        wishlist.products.add(product)
+        messages.success(request,
+                         f"Added {product.name} to your wishlist.")
+
+    referer = request.META.get('HTTP_REFERER', '')
+
+    return HttpResponseRedirect(referer)
