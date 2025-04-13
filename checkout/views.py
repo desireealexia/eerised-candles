@@ -157,15 +157,14 @@ def checkout_success(request, order_number):
             product.stock -= item.quantity
             product.save()
         else:
-            messages.warning(request, f"Stock for {product.name} was too low to update properly.")
+            if request.user.is_authenticated and request.user.is_superuser:
+                messages.warning(request, f"Stock for {product.name} was too low to update properly.")
             
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
-        # Attach the user's profile to the order
         order.user_profile = profile
         order.save()
 
-        # Save the user's info
         if save_info:
             profile_data = {
                 'default_phone_number': order.phone_number,
