@@ -80,29 +80,42 @@ The layout and structure of this website are based on the walkthrough project pr
 
 # Features
 
-- **Product Browsing**  
-  Users can easily browse through the available products, view detailed descriptions, images, and prices, and filter products based on categories or price range.
+- **Product Browsing**
+Users can easily browse through the available products, view detailed descriptions, images, and prices, and filter products based on categories or price range.
+
+[Product Browsing Desktop](docs/product-browsing-desktop.png)
+[Product Browsing Mobile](docs/product-browsing-mobile.png)
 
 - **User Authentication**  
-  Users can create an account and log in to manage their shopping cart, view past orders, and save personal preferences.
+Users can create an account and log in to manage their shopping cart, view past orders, watchlist and reviews.
 
-- **Shopping Cart**  
-  Users can add products to their shopping cart, view the contents, and proceed to checkout when ready to purchase.
+- **Checkout**  
+Users can add products to their shopping cart, view the contents, and proceed to checkout when ready to purchase.
+
+[Checkout](docs/checkout.png)
 
 - **Stripe Payment Integration**  
-  Payments are securely processed via Stripe, allowing users to complete transactions safely with credit/debit cards.
+Payments are securely processed via Stripe, allowing users to complete transactions safely with credit/debit cards.
 
 - **Order Confirmation**  
-  After successful payment, users receive an order confirmation with details of their purchase and expected delivery.
+After successful payment, users receive an order confirmation with details of their purchase and expected delivery.
+
+[Order Confirmation](docs/order-confirmation.png)
 
 - **Wishlist**  
-  Users can save their favorite products to a wishlist for easy access and future purchases.
+Users can save their favourite products to a wishlist for easy access and future purchases.
+
+[Wishlist](docs/wishlist.png)
 
 - **Product Reviews**  
-  Users can leave ratings and reviews on products to share their experiences and help other shoppers make informed decisions.
+Users can leave ratings and reviews on products to share their experiences and help other shoppers make informed decisions.
 
-- **Purchase History**  
-  Logged-in users can view their past orders and payment history, making it easy to track previous purchases.
+[Product Reviews](docs/customer-reviews.png)
+
+- **Order History**  
+Logged-in users can view their past orders and payment history, making it easy to track previous purchases.
+
+[Order History](docs/order-history.png)
 
 ### Future Features
 
@@ -307,6 +320,10 @@ The bug involved the "Update" and "Remove" buttons not staying aligned horizonta
 ### Update Button in Shopping Bag Not Working
 
 There was a bug where clicking the "Update" link in the shopping bag did not adjust the product quantity as expected. This was because the link's default behavior—navigating to a new page—was preventing the form from submitting properly. As a result, users were unable to update item quantities in their cart, which could lead to frustration and abandoned purchases. To fix the issue, `e.preventDefault()`; was added to the JavaScript click event handler for the "Update" link. This prevented the default link behavior and allowed the form to submit correctly. After applying the fix, the issue was resolved and users can now successfully update item quantities in their shopping bag.
+
+#### Bugs Not Fixed
+
+- **Bag Table Layout Shift on Multiple Items:** When two or more items are added to the shopping bag, the table layout on the bag page shifts unexpectedly. The exact cause of this issue is currently unknown. As it does not affect core functionality or user ability to complete a purchase, it has been left unfixed for now.
 
 ## Lighthouse Testing
 

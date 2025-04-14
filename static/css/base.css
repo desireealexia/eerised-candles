@@ -463,8 +463,11 @@ input[name='q']::placeholder {
 }
 
 @media (max-width: 768px) {
-
     .homepage-text {
         font-size: 42px;
+    }
+
+    .product-img {
+        height: 300px;
     }
 }

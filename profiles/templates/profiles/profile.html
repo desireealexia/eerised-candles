@@ -73,6 +73,7 @@
                   <li class="small">
                     {{ item.product.name }} x {{ item.quantity }}
                   </li>
+                  <hr>
                   {% endfor %}
                 </ul>
               </td>
@@ -100,11 +101,11 @@
                 <img
                   src="{{ product.image.url }}"
                   alt="{{ product.name }}"
-                  class="product-image mr-3"
+                  class="product-image d-none d-md-inline mr-3"
                   width="50"
                   height="50"
                 />
-                <strong>{{ product.name }}</strong>
+                <strong class="wishlist-product-name">{{ product.name }}</strong>
               </a>
               <form
                 method="POST"
