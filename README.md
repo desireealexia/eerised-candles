@@ -2,7 +2,7 @@
 
 EERISED Candles is an e-commerce platform that enables users to browse, purchase, and manage their orders for candles, reed diffusers and wax melts. The website offers an intuitive and visually appealing shopping experience with secure payment integration.
 
-![EERISED Candles Responsiveness](#)
+![EERISED Candles Responsiveness](docs/eerised-candles-responsiveness.png)
 
 [View live website here](https://eerised-candles-d14b8af9df5f.herokuapp.com/)
 
