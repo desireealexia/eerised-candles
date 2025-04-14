@@ -12,9 +12,9 @@ EERISED Candles is an e-commerce platform that enables users to browse, purchase
   - [Project Goals](#project-goals)
   - [User Stories](#user-stories)
   - [Design](#design)
-  - [Wireframes](#wireframes)
 - [Features](#features)
 - [Database Schema](#database-schema)
+- [Accessibility](#accessibility)
 - [Manual Testing](#manual-testing)
   - [Features Testing](#features-testing)
   - [Browser Compatibility](#browser-compatibility)
@@ -104,7 +104,7 @@ The layout and structure of this website are based on the walkthrough project pr
 - **Purchase History**  
   Logged-in users can view their past orders and payment history, making it easy to track previous purchases.
 
-## Future Features
+### Future Features
 
 - **Product Recommendations:** Use browsing and purchase history to suggest products to users based on their preferences.
 - **Social Media Integrations:** Allow users to share products, reviews, or their wishlist items on social media platforms (Instagram, Pinterest, etc.).
@@ -231,9 +231,36 @@ The website is designed with accessibility in mind, ensuring that all users, inc
 
 ## Features Testing
 
-| Feature | Test case | Outcome |
-| :-----: | :-------: | :-----: | 
-|         |           |         |     
+|             Feature             |                              Test Case                              |                                              Outcome                                              |
+| :-----------------------------: | :-----------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------: |
+|          Logo Display           |             Check if the logo is displayed on all pages             |                        Logo is visible at the top-left corner of the page                         |
+|        Logo as Home Link        |                   Click on the logo from any page                   |                               Logo takes the user to the home page                                |
+|         Navigation Bar          |      Ensure that the navigation bar is visible and accessible       |                      Navigation links are properly displayed and functional                       |
+|      Logged-Out My Account      |              View the my account links when logged out              |                                Options include: Register and Login                                |
+|      Logged-In My Account       |              View the my account links when logged in               |                              Options include: My Profile and Logout                               |
+|  Logged-In My Account (Admin)   |          View the my account links when logged in as admin          |                    Options include: Product Management, My Profile and Logout                     |
+|        Product Browsing         |                Browse products using navigation bar                 |                              All products are visible and accessible                              |
+|      Sorting Functionality      |                            Sort products                            |                      All products can be sorted by name, price and category                       |
+|         Product Details         |               Click on a product to view its details                |        Product detail page displays correct information (name, price, description, image)         |
+|           Add to Cart           |       Add a product to the cart from the product detail page        |    Product is added to the cart and reflected in the cart page with correct quantity and total    |
+|          Shopping Cart          |   View, update quantity, and remove items from the shopping cart    |             Cart updates correctly when items are added, quantity changed, or removed             |
+|        User Registration        |          Register a new user with valid and invalid inputs          |                Account is created with valid data; errors shown for invalid inputs                |
+|           User Login            |              Log in with valid and invalid credentials              |                      Redirect to home page on success; show error on failure                      |
+|        Checkout Process         |              Complete a purchase using Stripe payment               |               Payment is successfully processed and order confirmation is received                |
+|            Wishlist             |               Add and remove items from the wishlist                |                      Items are correctly added and removed from the wishlist                      |
+|        Review Submission        |             Submit a product review as a logged-in user             |         Review is successfully submitted and displayed under the respective product page          |
+|       Order Confirmation        |  Ensure that order confirmation is sent after a successful payment  |                 User receives a confirmation email with order details and status                  |
+|      Search Functionality       |                Enter a search term in the search bar                |                     Products matching the search term are displayed correctly                     |
+|        Responsive Design        |               Resize browser window or open on mobile               |           Layout adjusts and content is still usable and accessible on all screen sizes           |
+|        Mobile Navigation        |           Navigate through the site using a mobile device           |                 All navigation links and buttons work correctly on mobile devices                 |
+|         Form Validation         |              Submit forms with missing/invalid fields               |                       Shows validation errors for missing or invalid inputs                       |
+|       Alt Text for Images       |                Check images for descriptive alt text                |                All product images and key visuals have alt text for screen readers                |
+|       Keyboard Navigation       |       Navigate the site using only the keyboard (Tab, Enter)        |           All interactive elements (links, buttons, forms) are accessible via keyboard            |
+|  Accessible Links and Buttons   |   Ensure all links and buttons have accessible, descriptive text    |  All links and buttons have meaningful text for users with screen readers or keyboard navigation  |
+|    Product Stock Management     |           Check product availability after adding to cart           |       Stock is updated correctly after product is added to cart, preventing over-purchasing       |
+|         Product Rating          |          Rate a product and check if the rating is updated          |               Product rating is successfully updated and displayed after submission               |
+|   Stripe Payment Integration    |                 Complete a test payment via Stripe                  |                       Payment is processed securely and order is confirmed                        |
+|           Pagination            |         Test if pagination works for long product listings          |               Products are split across pages and pagination links work as expected               |
 
 ## Browser Compatibility
 
@@ -268,6 +295,18 @@ For CSS validation, I utilised the W3C CSS Validator. The CSS code was thoroughl
 ![CSS Validator](docs/css-validation.png)
 
 ## Bugs
+
+### Update Button Not Submitting Form
+
+The update buttons on the shopping bag page were not working due to a bug in the JavaScript that relied on the DOM structure to locate and submit the correct form. Specifically, it used `.closest('.row')` to find the associated `.update-form`, but after changes to the HTML layout, the form was no longer within the same `.row`, resulting in `form.submit()` not being triggered. This prevented users from updating item quantities in their bag. To fix the issue, the code was refactored to use a `data-target` attribute on each update button, pointing to the `id` of the corresponding form. The click handler then uses this attribute to directly select and submit the form, removing any dependency on the surrounding HTML structure. As a result, the update functionality now works reliably across all screen sizes and layouts.
+
+### Update and Remove Buttons Not Aligned Horizontally on Larger Screens
+
+The bug involved the "Update" and "Remove" buttons not staying aligned horizontally on larger screens. They were placed inside a container with Bootstrap grid classes (`col-12 col-sm-6`), but this setup caused them to stack vertically rather than appearing side by side. This misalignment affected the layout by creating an inconsistent user interface, potentially confusing users about the relationship between the buttons and the associated item. To fix the issue, the buttons were wrapped in a `div` with responsive grid classes (`col-12 col-sm-6 col-md-12 col-lg-12`) and utility classes (`d-flex justify-content-between`) to enforce a horizontal layout using Flexbox. Additionally, `float-right` was applied to the `.remove-item` class to ensure it aligned correctly within the container. As a result, the buttons now display side by side across all screen sizes, resolving the layout issue and improving the overall user experience.
+
+### Update Button in Shopping Bag Not Working
+
+There was a bug where clicking the "Update" link in the shopping bag did not adjust the product quantity as expected. This was because the link's default behavior—navigating to a new page—was preventing the form from submitting properly. As a result, users were unable to update item quantities in their cart, which could lead to frustration and abandoned purchases. To fix the issue, `e.preventDefault()`; was added to the JavaScript click event handler for the "Update" link. This prevented the default link behavior and allowed the form to submit correctly. After applying the fix, the issue was resolved and users can now successfully update item quantities in their shopping bag.
 
 ## Lighthouse Testing
 
