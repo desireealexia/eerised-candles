@@ -67,6 +67,7 @@ a:hover {
 /* ============================= */
 
 .homepage-text {
+    font-weight: 400;
     color: #000;
 }
 
@@ -122,7 +123,7 @@ input[name='q']::placeholder {
 .shop-now-button {
     background: black;
     color: white;
-    min-width: 260px;
+    min-width: 200px;
 }
 
 .btn-black {
@@ -458,5 +459,12 @@ input[name='q']::placeholder {
 
     .increment-qty, .decrement-qty {
         padding: .25rem .5rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .homepage-text {
+        font-size: 42px;
     }
 }
